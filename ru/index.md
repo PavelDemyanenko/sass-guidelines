@@ -4,12 +4,12 @@ layout: default
 
 # Об авторе
 
-Меня зовут [Hugo Giraudel](http://hugogiraudel.com), Я фронтенд разработчик из Франции, собирающийся переехать в Берлин, Германаю. Я пишу Sass больше двух лет и теперь являюсь автором таких sass-проектов как [SassDoc](http://sassdoc.com)  и [Sass-Compatibility](http://sass-compatibility.github.io).
+Меня зовут [Hugo Giraudel](http://hugogiraudel.com), Я frontend-разработчик из Франции, собираюсь переехать в Германию, в Берлин. Я пишу на Sass больше двух лет и теперь являюсь автором таких Sass-проектов, как [SassDoc](http://sassdoc.com) и [Sass-Compatibility](http://sass-compatibility.github.io).
 
-Я также написал несколько библиотек, в основном ради интереса: [SassyJSON](https://github.com/HugoGiraudel/SassyJSON), [SassyLists](http://sassylists.com), [SassySort](https://github.com/HugoGiraudel/SassySort), [SassyCast](https://github.com/HugoGiraudel/SassyCast), [SassyMatrix](https://github.com/HugoGiraudel/SassyMatrix), [SassyBitwise](https://github.com/HugoGiraudel/SassyBitwise), [SassyIteratorsGenerators](https://github.com/HugoGiraudel/SassyIteratorsGenerators), [SassyLogger](https://github.com/HugoGiraudel/SassyLogger), [SassyStrings](https://github.com/HugoGiraudel/SassyStrings) and [SassyGradients](https://github.com/HugoGiraudel/SassyGradients).
+Я также написал несколько библиотек, в основном ради интереса: [SassyJSON](https://github.com/HugoGiraudel/SassyJSON), [SassyLists](http://sassylists.com), [SassySort](https://github.com/HugoGiraudel/SassySort), [SassyCast](https://github.com/HugoGiraudel/SassyCast), [SassyMatrix](https://github.com/HugoGiraudel/SassyMatrix), [SassyBitwise](https://github.com/HugoGiraudel/SassyBitwise), [SassyIteratorsGenerators](https://github.com/HugoGiraudel/SassyIteratorsGenerators), [SassyLogger](https://github.com/HugoGiraudel/SassyLogger), [SassyStrings](https://github.com/HugoGiraudel/SassyStrings) и [SassyGradients](https://github.com/HugoGiraudel/SassyGradients).
 
 <div class="button-wrapper">
-  <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" class="button">Catch me on Twitter</a>
+  <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" class="button">Лови меня в Твиттере</a>
 </div>
 
 
@@ -24,15 +24,15 @@ layout: default
 
 # Сотрудничество
 
-Sass руководство открытый проект, которым я руковожу в свободное время. Излишне говорить, что это довольно большой объем работы, чтобы держать все задокументированным в последней версии. Знать, что вам понравилось это руководство уже высоко ценится!
+Руководство Sass – открытый проект, которым я руковожу в свободное время. Излишне говорить, что это довольно большой объем работы, чтобы держать всё задокументированным в последней версии. Знать, что вам понравилось это руководство – уже ценно!
 
-Теперь, если вы чувтствуете, что готовы к сотрудничеству, пожалуйста, знайте, уже будет очень здорово просто твитнув, рассказав или открыв пулл-реквест с исправлением ошибок на [GitHub repository](https://github.com/HugoGiraudel/sass-guidelines)!
+Теперь, если вы чувтствуете, что готовы к сотрудничеству, пожалуйста, знайте, уже будет очень здорово просто твитнуть, рассказав или открыв Pull Request с исправлением ошибок в [репозитории на GitHub](https://github.com/HugoGiraudel/sass-guidelines)!
 
-Прежде, чем мы начнем: если вам понравился этот документ, or if it is useful for you or your team, please consider supporting it!
+Прежде, чем мы начнём: если вам понравился этот документ, или он оказался полезен вам или вашей команде, пожалуйста, подумайте о го поддержке!
 
 <div class="button-wrapper">
-  <a href="https://gum.co/sass-guildelines" target="_blank" class="button">Поддержите Sass руководство</a>
-  {% capture tweet %}{{ site.title }}, {{ site.description }} by @{{ site.twitter_username }} –{% endcapture %}
+  <a href="https://gum.co/sass-guildelines" target="_blank" class="button">Поддержите руководство Sass</a>
+  {% capture tweet %}{{ site.title }}, {{ site.description }} от @{{ site.twitter_username }} –{% endcapture %}
   <a href="https://twitter.com/share?text={{ tweet | cgi_escape }}&url={{ site.url }}" target="_blank" class="button">Расскажите</a>
 </div>
 
