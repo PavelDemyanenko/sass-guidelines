@@ -684,20 +684,20 @@ $value: str-slice($length + unquote(''), 1, 2)
 
 ## Цвета
 
-Цвета занимают важное место в языке CSS. Естественно, Sass является ценным союзником, когда дело доходит до манипулирования цветами, в основном путем предоставления [мощных функций](http://sass-lang.com/documentation/Sass/Script/Functions.html).
+Цвета занимают важное место в языке CSS. Естественно, Sass является ценным союзником, когда дело доходит до управления цветами, в основном – путём предоставления [мощных функций](http://sass-lang.com/documentation/Sass/Script/Functions.html).
 
 
 
 ### Цветовые форматы
 
-Для того, чтобы сделать цвета просто, как только возможно, мой совет будет в соблюдение следующего порядка в предпочтение цветных форматов:
+Для того, чтобы сделать цвета простыми, насколько возможно, советую соблюдать следующий порядок предпочтения цветовых форматов:
 
-1. [CSS ключеые слова](http://www.w3.org/TR/css3-color/#svg-color);
-1. [HSL нотация](http://en.wikipedia.org/wiki/HSL_and_HSV);
-1. [RGB нотация](http://en.wikipedia.org/wiki/RGB_color_model);
-1. Шестнадцатеричная нотация. Предпочтительно в нижнем ригистре и укороченная по возможности.
+1. [Ключеые слова CSS](http://www.w3.org/TR/css3-color/#svg-color);
+1. [Обозначение HSL](http://en.wikipedia.org/wiki/HSL_and_HSV);
+1. [Обозначение RGB](http://en.wikipedia.org/wiki/RGB_color_model);
+1. Шестнадцатеричная нотация. Предпочтительно в нижнем ригистре и по возможности укороченная.
 
-Во-первых, ключевые слова часто говорят сами за себя. Представление HSL не только самое простое для человеческого мозга, чтобы понять, <SUP> [править] </ SUP>, это также делает его легким для настроики цвета путем регулировки цветового тона, насыщенности и яркости индивидуально. RGB-прежнему имеет преимущество, показывая прямо сейчас, если цвет более синий, зеленый или красный, но это не делает его легким в построение цвета из трех частей. Наконец, шестнадцатеричное представление близко сложно к расшифроке человеческого ума.
+Во-первых, ключевые слова часто говорят сами за себя. Представление HSL – не только самое простое для человеческого мозга<SUP>[указать источник]</ SUP>, это также делает его лёгким для настроики цвета путём регулировки цветового тона, насыщенности и яркости индивидуально. RGB по-прежнему имеет преимущество, показывая прямо сейчас, если цвет более синий, зелёный или красный, но это не делает его лёгким в построении цвета из трёх частей. Наконец, шестнадцатеричное представление слишком сложно для расшифровки человеческим умом.
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
@@ -726,7 +726,7 @@ $value: str-slice($length + unquote(''), 1, 2)
   </div>
 </div>
 
-При использовании HSL или обозначения RGB, всегда добавляйте один пробел после запятой (`,`) и без пробела между скобками ((`, `)`) и содержанию.
+При использовании обозначений HSL или RGB, всегда пишите один пробел после запятой (`,`) и без пробела между скобками (`(`, `)`) и содержанием.
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
@@ -763,7 +763,7 @@ $value: str-slice($length + unquote(''), 1, 2)
 
 ### Цвета и переменные
 
-При использовании цвета более чем одного раза, сохраняйтк его в переменной с многозначительным названием, представляющим цвет.
+При использовании цвета более одного раза, сохраняйте его в переменной с осмысленным названием, описывающим цвет.
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
@@ -778,7 +778,7 @@ $sass-pink: #c69
   </div>
 </div>
 
-Теперь вы можете использовать эту переменную, когда вы захотите. Однако, если ваш использование сильно привязаны к теме, я бы не советовал переменные. Вместо этого, храните его в другой переменной с именем, объясняя, как она должна быть использована.
+Теперь вы можете использовать эту переменную, когда вы захотите. Однако, если ваше использование сильно привязано к теме, я бы не советовал использовать переменные как есть. Вместо этого, храните их в других переменных с именем, объясняющим, как она должна быть использована.
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
@@ -793,7 +793,7 @@ $main-theme-color: $sass-pink
   </div>
 </div>
 
-Это будет препятствовать смене темы, ведущую к чему-то вроде `$sass-pink:: blue`.
+Это будет препятствовать изменениям темы, ведущим к чему-то вроде `$sass-pink: blue`.
 
 {% include donate.html %}
 
@@ -803,18 +803,18 @@ $main-theme-color: $sass-pink
 
 
 
-И [`осветление`](http://sass-lang.com/documentation/Sass/Script/Functions.html#lighten-instance_method) и [`затемнение`](http://sass-lang.com/documentation/Sass/Script/functions.html#darken-instance_method) — функции манипулирования цвета HSL пространства, добавляя или вычитая в HSL пространстве. В принципе, они не что иное, как алиасы для `$lightness` параметра [`adjust-color`](http://sass-lang.com/documentation/Sass/Script/Functions.html#adjust_color-instance_method) функции.
+Обе функции [`lighten`](http://sass-lang.com/documentation/Sass/Script/Functions.html#lighten-instance_method) и [`darken`](http://sass-lang.com/documentation/Sass/Script/functions.html#darken-instance_method) манипулируют цветами пространства HSL, добавляя или вычитая в пространстве HSL. В принципе, они ни что иное, как алиасы для параметра `$lightness` в функции [`adjust-color`](http://sass-lang.com/documentation/Sass/Script/Functions.html#adjust_color-instance_method).
 
-Дело в том, эта функция часто не дает ожидаемого результата. С другой стороны, функция [`mix`](http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method) является хорошим способом осветлить или затемнить цвет, смешивая его либо `white` или` black`.
+Дело в том, что эта функция часто не даёт ожидаемого результата. С другой стороны, функция [`mix`](http://sass-lang.com/documentation/Sass/Script/Functions.html#mix-instance_method) является хорошим способом осветлить или затемнить цвет, смешивая его либо с `white`, либо с ` black`.
 
-Преимущество использования `mix`, а не одним из двух указанных функций является то, что она будет постепенно меняться на черный (или белый), когда вы уменьшаете долю цвета, в то время как` darken` и `lighten` быстро меняют цвет с черного и белого.
+Преимуществом использования `mix` перед одной из двух указанных функций выше является то, что она будет постепенно меняться на чёрный (или белый), когда вы уменьшаете долю цвета, в то время как `darken` и `lighten` быстро меняют цвет на чёрный или белый.
 
 <figure role="group">
-  <img src="/assets/images/lighten-darken-mix.png" alt="Иллюстрация разницы между освтлением/затемнением и mix функции Sass" />
-  <figcaption>Иллюстрация разницы между <code>lighten</code>/<code>darken</code> и <code>mix</code>функции Sass от <a href="http://codepen.io/KatieK2/pen/tejhz/" target="_blank">KatieK</a></figcaption>
+  <img src="/assets/images/lighten-darken-mix.png" alt="Иллюстрация разницы между функциями darken/lighten и mix в Sass" />
+  <figcaption>Иллюстрация разницы между функциями <code>lighten</code>/<code>darken</code> и <code>mix</code> в Sass от <a href="http://codepen.io/KatieK2/pen/tejhz/" target="_blank">KatieK</a></figcaption>
 </figure>
 
-Если вы не хотите, чтобы писать `mix` функцию каждый раз, вы можете создать две простых в использовании функций `tint` и `shade` (которые также являются частью [Compass](HTTP://compass- style.org/reference/compass/helpers/colors/#shade)), чтобы сделать то же самое:
+Если вы не хотите писать функцию `mix` каждый раз, вы можете создать две простых в использовании функции `tint` и `shade` (которые также являются частью [Compass](HTTP://compass- style.org/reference/compass/helpers/colors/#shade)), чтобы сделать то же самое:
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
@@ -822,7 +822,7 @@ $main-theme-color: $sass-pink
 /// Немного осветлить цвет
 /// @access public
 /// @param {Color} $color - цвет для осветления
-/// @param {Number} $percentage - процент `$color` в возвращаемом цвете
+/// @param {Number} $percentage - процент от `$color` в возвращаемом цвете
 /// @return {Color}
 @function tint($color, $percentage) {
   @return mix($color, white, $percentage);
@@ -831,7 +831,7 @@ $main-theme-color: $sass-pink
 /// Немного затемнить цвет
 /// @access public
 /// @param {Color} $color - цвет для затемнения
-/// @param {Number} $percentage - процент `$color` в возвращаемом цвете
+/// @param {Number} $percentage - процент от `$color` в возвращаемом цвете
 /// @return {Color}
 @function shade($color, $percentage) {
   @return mix($color, black, $percentage);
@@ -843,7 +843,7 @@ $main-theme-color: $sass-pink
 /// Немного осветлить цвет
 /// @access public
 /// @param {Color} $color - цвет для осветления
-/// @param {Number} $percentage - процент `$color` в возвращаемом цвете
+/// @param {Number} $percentage - процент от `$color` в возвращаемом цвете
 /// @return {Color}
 @function tint($color, $percentage)
   @return mix($color, white, $percentage)
@@ -851,7 +851,7 @@ $main-theme-color: $sass-pink
 /// Немного затемнить цвет
 /// @access public
 /// @param {Color} $color - цвет для затемнения
-/// @param {Number} $percentage - процент `$color` в возвращаемом цвете
+/// @param {Number} $percentage - процент от `$color` в возвращаемом цвете
 /// @return {Color}
 @function shade($color, $percentage)
   @return mix($color, black, $percentage)
