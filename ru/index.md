@@ -860,7 +860,7 @@ $main-theme-color: $sass-pink
 </div>
 
 <div class="note">
-  <p><a href="http://sass-lang.com/documentation/Sass/Script/Functions.html#scale_color-instance_method"><code>scale-color</code></a> функция разработана, чтобы изменять свойства более плавно, принимая во внимание насколько они уже изменениы. Результат так же хорош, как и от <code>mix</code>, но с более удобной конвенцией вызова. Хотя, коэффициент масштабирования не совсем то же самое.</p>
+  <p>Функция <a href="http://sass-lang.com/documentation/Sass/Script/Functions.html#scale_color-instance_method"><code>scale-color</code></a> разработана чтобы изменять свойства более плавно, принимая во внимание, насколько они уже изменены. Результат так же хорош, как и от <code>mix</code>, но с более удобным вызовом. Хотя, множитель масштабирования – не совсем то же самое.</p>
 </div>
 
 
