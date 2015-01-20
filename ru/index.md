@@ -86,14 +86,14 @@ layout: default
 * [Архитектура](#architecture)
   * [Компоненты](#components)
   * [Шаблон 7-1](#the-7-1-pattern)
-    * [Основная папка](#base-folder)
-    * [Папка компонентов](#components-folder)
-    * [Папка лэйаута](#layout-folder)
-    * [Папка страниц](#pages-folder)
-    * [Папка тем](#themes-folder)
-    * [Папка утилит](#utils-folder)
-    * [Папка вендоров](#vendors-folder)
-    * [Главный файл](#main-file)
+    * [Папка Base](#base-folder)
+    * [Папка Layout](#layout-folder)
+    * [Папка Components](#components-folder)
+    * [Папка Pages](#pages-folder)
+    * [Папка Themes](#themes-folder)
+    * [Папка Utils](#utils-folder)
+    * [Папка Vendors](#vendors-folder)
+    * [Файл Main](#main-file)
   * [Файл позора](#shame-file)
 * [Адаптивный веб-дизайн и точки остановки](#responsive-web-design-and-breakpoints)
   * [Именование точек остановки](#naming-breakpoints)
@@ -117,7 +117,7 @@ layout: default
 * [Ошибки и предупреждения](#warnings-and-errors)
   * [Предупреждения](#warnings)
   * [Ошибки](#errors)
-* [Инструментарий](#tools)
+* [Инструменты](#tools)
   * [Compass](#compass)
   * [Сетки](#grid-systems)
   * [SCSS-lint](#scss-lint)
@@ -878,7 +878,7 @@ $main-theme-color: $sass-pink
 
 
 
-## Листы
+## Списки
 
 Списки Sass эквиваленты массивам.Список представляет собой плоскую структуру данных (в отличие от [карт кода](#maps)) предназначенную для хранения значения любого типа (в том числе списков со вложенными списками).
 
@@ -972,7 +972,7 @@ $shadows: $shadows, $shadow
 
 
 
-## Карты кода
+## Карты
 
 Начиная с Sass 3.3, авторы таблиц стилей могут определить карты коды, которые являются термином Sass для ассоциативных массивов, хэшей или даже JavaScript объектов. Карта кода является структура данных ключи-отображения (это может быть любой тип данных, включая карты коды, хотя я бы не рекомендовал его) для значений любого типа.
 
@@ -1026,7 +1026,7 @@ $breakpoints: (
 
 
 
-### Отладка Sass карт кода
+### Отладка карт Sass
 
 Если вы когда-нибудь потерялись, не понимая что за сумасшедшия магия происходит в карте кода Sass, не волнуйтесь, потому что есть еще способ, чтобы спастись.
 
@@ -1239,7 +1239,7 @@ $breakpoints: (
 
 
 
-## Декларация сортировки
+## Объявление сортировки
 
 Я не знаю много темах, где мнения разделенны, о том как они расценивают декларацию сортировки в CSS. Конкретно, существуют две фракции здесь:
 
@@ -1383,7 +1383,7 @@ $breakpoints: (
 
 
 
-## Вложеность селекторов
+## Вкладывание селекторов
 
 Одна особенность Sass, которую не слишком используют многие разработчики *вложенность селекторов*. Она повзволяет автору таблицы стилей вычислять длинные селектыр вкладывая короткие селекторы друг в друга.
 
@@ -1632,7 +1632,7 @@ $breakpoints: (
 
 
 
-# Конвенции наименования
+# Соглашения по именованию
 
 В этом разделе мы не будем иметь дело с лучшими конвенциями CSS именования для сопровождения и масштабирования; не только потому, что это остается за вами, это также из области руководства по стилям для Sass. Я предлагаю те, которые рекомендованы [CSS Руководством](http://cssguidelin.es/#naming-conventions).
 
@@ -1856,7 +1856,7 @@ $imported-modules: append($imported-modules, $module) !global
 
 
 
-## Документация
+## Документирование
 
 Каждая переменная, функция, миксин и плейсхолдер, который предназначен для повторного использования во всем коде должен быть задокументирован как часть глобального API с использованием [SassDoc](http://sassdoc.com).
 
@@ -2221,7 +2221,7 @@ sass/
 
 
 
-### папка Vendors
+### Папка Vendors
 
 И последнее, но менее важное, что больгинство проектов будут иметь папку `vendors/`, содержащую все CSS файлы из внешних библиотет и фреймворков – Normalize, Bootstrap, jQueryUI, FancyCarouselSliderjQueryPowered, и так далее. Нахождение этих файлов в этой папке хороший способ сказать: "Эй, это не от меня, а не мой код, не моя обязанность".
 
@@ -2236,7 +2236,7 @@ sass/
 
 
 
-### Main файл
+### Файл Main
 
 Главный файл (обычно названный `main.scss`) должен быть единственным файлом Sass, который не начинается с нижнего поддчекивания. Этот файл не должен содержать ничего кроме `@import` и комментариев.
 
@@ -2423,7 +2423,7 @@ sass/
 
 
 
-## Shame file
+## Файл позора
 
 There is an interesting concept that has been made popular by [Harry Roberts](http://csswizardry.com), [Dave Rupert](http://daverupert.com) and [Chris Coyier](http://css-tricks.com) that consists of putting all the CSS declarations, hacks and things we are not proud of in a *shame file*. This file, dramatically titled `_shame.scss`, would be imported after any other file, at the very end of the stylesheet.
 
@@ -2474,7 +2474,7 @@ There is an interesting concept that has been made popular by [Harry Roberts](ht
 
 
 
-# Responsive Web Design and breakpoints
+# Адаптивный веб-дизайн и точки остановки
 
 I do not think we still have to introduce Responsive Web Design now that it is everywhere. However you might ask yourself *why is there a section about RWD in a Sass styleguide?* Actually there are quite a few things that can be done to make working with breakpoints easier, so I thought it would not be such a bad idea to list them here.
 
@@ -2483,7 +2483,7 @@ I do not think we still have to introduce Responsive Web Design now that it is e
 
 
 
-## Naming breakpoints
+## Именование точек остановки
 
 I think it is safe to say that media queries should not be tied to specific devices. For instance, this is definitely a bad idea to try targeting iPads or Blackberry phones specifically. Media queries should take care of a range of screen sizes, until the design breaks and the next media query takes over.
 
@@ -2549,7 +2549,7 @@ $breakpoints: ("seed": (min-width: 800px), "sprout": (min-width: 1000px), "plant
 
 
 
-## Breakpoint manager
+## Менеджер точек остановки
 
 Once you have named your breakpoints the way you want, you need a way to use them in actual media queries. There are plenty of ways to do so but I must say I am a big fan of the breakpoint map read by a getter function. This system is both simple and efficient.
 
@@ -2609,7 +2609,7 @@ Once you have named your breakpoints the way you want, you need a way to use the
 
 
 
-## Media Queries Usage
+## Использование медиа-запросов
 
 Not so long ago, there has been a quite hot debate about where should be written media queries: should they belong within selectors (as Sass allows it) or strictly dissociated from them? I have to say I am a fervent defender of the *media-queries-within-selectors* system, as I think it plays well with the ideas of *components*.
 
@@ -2675,7 +2675,7 @@ Now, if you really are concerned about duplicated media queries, you can still u
 
 
 
-# Variables
+# Переменные
 
 Variables are the essence of any programming language. They allow us to reuse values without having to copy them over and over again. Most importantly, they make updating a value very easy. No more find and replace or manual crawling.
 
@@ -2694,7 +2694,7 @@ Basically, there is no point declaring a variable that will never be updated or 
 
 
 
-## Scoping
+## Контекст
 
 Variable scoping in Sass has changed over the years. Until fairly recently, variable declarations within rulesets and other scopes were local by default. However when there was already a global variable with the same name, the local assignment would change the global variable. Since version 3.4, Sass now properly tackles the concept of scopes and create a new local variable instead.
 
@@ -2769,7 +2769,7 @@ $variable: 'initial value' !global
 
 
 
-## `!default` flag
+## Флаг `!default`
 
 When building a library, a framework, a grid system or any piece of Sass that is intended to be distributed and used by external developers, all configuration variables should be defined with the `!default` flag so they can be overwritten.
 
@@ -2818,7 +2818,7 @@ $baseline: 2em
 
 
 
-## `!global` flag
+## Флаг `!global`
 
 The `!global` flag should only be used when overriding a global variable from a local scope. When defining a variable at root level, the `!global` flag should be omitted.
 
@@ -2848,7 +2848,7 @@ $baseline: 2em !global
 
 
 
-## Multiple variables or maps
+## Много переменных или карты
 
 There are advantages of using maps rather than multiple distinct variables. The main one is the ability to loop over a map, which is not possible with distinct variables.
 
@@ -2909,7 +2909,7 @@ $z-indexes: ('modal': 5000, 'dropdown': 4000, 'default': 1, 'below': -1,)
 
 
 
-# Extend
+# Расширение
 
 The `@extend` directive has to be one of the features that made Sass so popular a couple of years ago. As a reminder, it makes it possible to tell Sass to style an element A exactly as though it also matched selector B. Needless to say this can end up being a valuable ally when writing modular CSS.
 
@@ -2991,7 +2991,7 @@ To sum up, I would **advise against using the `@extend` directive**, unless unde
 
 
 
-# Mixins
+# Примеси
 
 Mixins are one of the most used features from the whole Sass language. They are the key to reusability and DRY components. And for good reason: mixins allow authors to define styles that can be reused throughout the stylesheet without needing to resort to non-semantic classes such as `.float-left`.
 
@@ -3004,7 +3004,7 @@ But I feel I must warn you against abusing the power of mixins. Again, the keywo
 
 
 
-## Basics
+## Основы
 
 That being said, mixins are extremely useful and you should be using some. The rule of thumb is that if you happen to spot a group of CSS properties that always appear together for a reason (i.e. not a coincidence), you can put them in a mixin instead. The [micro-clearfix hack from Nicolas Gallagher](http://nicolasgallagher.com/micro-clearfix-hack/) deserves to be put in a (argumentless) mixin for instance.
 
@@ -3078,7 +3078,7 @@ Another valid example would be a mixin to size an element, defining both `width`
 
 
 
-## Arguments list
+## Список аргументов
 
 When dealing with an unknown number of arguments in a mixin, always use an `arglist` rather than a list. Think of `arglist` as the 8th hidden undocumented data type from Sass that is implicitly used when passing an arbitrary number of arguments to a mixin or a function whose signature contains `...`.
 
@@ -3165,7 +3165,7 @@ $params: ( 'c': 'kittens', 'a': true, 'b': 42, )
 
 
 
-## Mixins and vendor prefixes
+## Примеси и вендорные префиксы
 
 It might be tempting to define custom mixins to handle vendor prefixes for unsupported or partially supported CSS properties. But we do not want to do this. First, if you can use [Autoprefixer](https://github.com/postcss/autoprefixer), use Autoprefixer. It will remove Sass code from your project, will always be up-to-date and will necessarily do a much better job than you at prefixing stuff.
 
@@ -3269,7 +3269,7 @@ Please keep in mind this is a poor solution. For instance, it cannot deal with c
 
 
 
-# Conditional statements
+# Условные операторы
 
 You probably already know that Sass provides conditional statements via the `@if` and `@else` directives. Unless you have some medium to complex logic in your code, there is no need for conditional statements in your everyday stylesheets. Actually, they mainly exist for libraries and frameworks.
 
@@ -3399,7 +3399,7 @@ When using conditional statements within a function to return a different result
 
 
 
-# Loops
+# Циклы
 
 Because Sass provides complex data structures such as [lists](#lists) and [maps](#maps), it is no surprise that it also gives a way for authors to iterate over those entities.
 
@@ -3419,7 +3419,7 @@ The `@each` loop is definitely the most-used out of the three loops provided by 
 {% highlight scss %}
 @each $theme in $themes {
   .section-#{$theme} {
-    background-color: map-get($colors, $theme);
+    background-color: map-get($, $theme);
   }
 }
 {% endhighlight %}
@@ -3513,7 +3513,7 @@ The `@while` loop has absolutely no use case in a real Sass project, especially 
 
 
 
-# Warnings and Errors
+# Ошибки и предупреждения
 
 If there is a feature that is often overlooked by Sass developers, it is the ability to dynamically output warnings and errors. Indeed, Sass comes with three custom directives to print content in the standard output system (CLI, compiling app...):
 
@@ -3538,7 +3538,7 @@ Now, there is a lot of room in a Sass project for warnings and errors. Basically
 
 
 
-## Warnings
+## Предупреждения
 
 Take this function from [Sass-MQ](https://github.com/sass-mq/sass-mq) attempting to convert a `px` value to `em`, for instance:
 
@@ -3578,7 +3578,7 @@ If the value happens to be unitless, the function assumes the value is meant to 
 
 
 
-## Errors
+## Ошибки
 
 Errors, unlike warnings, prevent the compiler from going any further. Basically, they stop the compilation and display a message in the output stream as well as the stack trace, which is handy for debugging. Because of this, errors should be thrown when there is no way for the program to keep running. When possible, try to work around the issue and display a warning instead.
 
@@ -3648,7 +3648,7 @@ $z-indexes: ('modal': 5000, 'dropdown': 4000, 'default': 1, 'below': -1,)
 
 
 
-# Tools
+# Инструменты
 
 What's nice about a CSS preprocessor as popular as Sass is that it comes with a whole ecosystem of frameworks, plugins, libraries and tools. After 8 years of existence, we are getting closer and closer to the point where [everything that can be written in Sass has been written in Sass](http://hugogiraudel.com/2014/10/27/rethinking-atwoods-law/).
 
@@ -3688,7 +3688,7 @@ Anyway, I do not forbid the use of Compass although I would not recommend it eit
 
 
 
-## Grid systems
+## Сетки
 
 Not using a grid system is not an option now that Responsive Web Design is all over the place. To make designs look consistent and solid across all sizes, we use some sort of grid to lay out the elements. To avoid having to code this grid work over and over again, some brilliant minds made theirs reusable.
 
@@ -3922,7 +3922,7 @@ linters:
 
 
 
-# Too Long; Didn't read
+# Слишком длинно; Не читал
 
 To sum up, we want:
 
