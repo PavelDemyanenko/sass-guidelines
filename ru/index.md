@@ -2993,11 +2993,11 @@ $z-indexes: ('modal': 5000, 'dropdown': 4000, 'default': 1, 'below': -1,)
 
 # Примеси
 
-Mixins are one of the most used features from the whole Sass language. They are the key to reusability and DRY components. And for good reason: mixins allow authors to define styles that can be reused throughout the stylesheet without needing to resort to non-semantic classes such as `.float-left`.
+Примеси одна из самых важных частьей из всего языка Sass. Они являются ключом к повторному использованю и DRY компонентам. Позволяют авторам определить стили, которые будут повторно использоваться по всей таблице стилей без надобности к использованию таких несемантических классов как `.float-left`.
 
-They can contain full CSS rules and pretty much everything that is allowed anywhere in a Sass document. They can even take arguments, just like functions. Needless to say, the possibilities are endless.
+Они могут содержать полный набор CSS правил и в значительной степени всё, что разрешено в любом месте документа Sass. Они могут принимать аргументы, как функции. Излишне говорить, что их возможности безграничны. 
 
-But I feel I must warn you against abusing the power of mixins. Again, the keyword here is *simplicity*. It might be tempting to build extremely powerful mixins with massive amounts of logic. It's called over-engineering and most developers suffer from it. Don't over think your code, and above all keep it simple. If a mixin ends up being longer than 20 lines or so, then it should be either split into smaller chunks or completely revised.
+Но я чувствую, что я должен вас предупредить, о злоупотребление силой примесей. Опять же, ключевое слово здесь это *простота*. Это очень заманчиво строить чрезвычайно мощные примеси с огромным количеством логики. Это называется техническим усложением и большинство разработчиков страдает от этого. Не усложняйте код, и, прежде всего сохраняйте его простым. Если примесь становится больше, чем 20 строк или около того, то она должна быть разбита на более мелкие части или полностью пересмотрена.
 
 
 
@@ -3006,7 +3006,7 @@ But I feel I must warn you against abusing the power of mixins. Again, the keywo
 
 ## Основы
 
-That being said, mixins are extremely useful and you should be using some. The rule of thumb is that if you happen to spot a group of CSS properties that always appear together for a reason (i.e. not a coincidence), you can put them in a mixin instead. The [micro-clearfix hack from Nicolas Gallagher](http://nicolasgallagher.com/micro-clearfix-hack/) deserves to be put in a (argumentless) mixin for instance.
+Как было сказано примеси чрезвычайно полезны, и вы должны их использовать. Правило гласит, что если вам случится встреить набор CSS свойств, которые всегда появляются вместе по причине (т.е. не случайно), то вы можете поместить их в примесь. [Micro-clearfix хак от Nicolas Gallagher](http://nicolasgallagher.com/micro-clearfix-hack/) заслуживает быть помещенным в примесь (без аргументов), например.
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
@@ -3037,12 +3037,12 @@ That being said, mixins are extremely useful and you should be using some. The r
   </div>
 </div>
 
-Another valid example would be a mixin to size an element, defining both `width` and `height` at the same time. Not only would it make the code lighter to type, but also easier to read.
+Еще один обоснованный пример примеси будет примесь для определения размера элемепнта, одновременно определяющий и `ширину` и `высоту`. Код станет не только легче набирать, но и легче читать.
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
 {% highlight scss %}
-/// Helper to size an element
+/// Помощник для определения размера
 /// @author Hugo Giraudel
 /// @param {Length} $width
 /// @param {Length} $height
@@ -3054,7 +3054,7 @@ Another valid example would be a mixin to size an element, defining both `width`
   </div>
   <div class="code-block__wrapper" data-syntax="sass">
 {% highlight sass %}
-/// Helper to size an element
+/// Помощник для определения размера
 /// @author Hugo Giraudel
 /// @param {Length} $width
 /// @param {Length} $height
@@ -3080,7 +3080,7 @@ Another valid example would be a mixin to size an element, defining both `width`
 
 ## Список аргументов
 
-When dealing with an unknown number of arguments in a mixin, always use an `arglist` rather than a list. Think of `arglist` as the 8th hidden undocumented data type from Sass that is implicitly used when passing an arbitrary number of arguments to a mixin or a function whose signature contains `...`.
+Когда имеешь дело с неизвестным количеством аргументов в примеси, то всегда используйте `arglist`, а не список. Думайте о `arglist`, как о 8 скрытом недокументированным типе данных Sass, неявность которого позволяет использовать произвольное количество аргументов в примеси или функции, подписи которых содержат `...`.
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
@@ -3100,9 +3100,9 @@ When dealing with an unknown number of arguments in a mixin, always use an `argl
   </div>
 </div>
 
-Now, when building a mixin that accepts a handful of arguments (understand 3 or more), think twice before merging them out as a list or a map thinking it will be easier than passing them all one by one.
+Теперь, когда вы деалете примесь, которая принимает несколько аргументов (3 или более), подумаейте дважды прежде чем создавать один список или может будет легче передавать их по одному.
 
-Sass is actually pretty clever with mixins and function declarations, so much so that you can actually pass a list or a map as an arglist to a function/mixin so that it gets parsed as a series of arguments.
+Sass очень умный в работе с примесями и объявлениями функций, так передавая список или карту в качестве списка аргументов для функции/примеси, это анализируется как ряд аргументов.
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
@@ -3167,11 +3167,11 @@ $params: ( 'c': 'kittens', 'a': true, 'b': 42, )
 
 ## Примеси и вендорные префиксы
 
-It might be tempting to define custom mixins to handle vendor prefixes for unsupported or partially supported CSS properties. But we do not want to do this. First, if you can use [Autoprefixer](https://github.com/postcss/autoprefixer), use Autoprefixer. It will remove Sass code from your project, will always be up-to-date and will necessarily do a much better job than you at prefixing stuff.
+Написание пользовательских примесей для обработки префиксов для неподдерживаемых или частично поддерживаемых свойств CSS может быть очень заманчивым. Но мы бы не хотели это делать. Сперва, если вы можете использовать [Autoprefixer](https://github.com/postcss/autoprefixer), используйте Autoprefixer. Это сделает Sass код вашего проекта всегда соотвествующим последним обновлениям и сделает работу лучше, чем ваши код для подстановки префиксов.
 
-Unfortunately, Autoprefixer is not always an option. If you use either [Bourbon](http://bourbon.io/) or [Compass](http://compass-style.org/), you may already know that they both provide a collection of mixins that handle vendor prefixes for you. Use those.
+К сожалению, Autoprefixer не всегда вариант. Если вы используете [Bourbon](http://bourbon.io/) или [Compass](http://compass-style.org/), вы уже наверника знаете, что они поставляют коллекцию примесей для обработки вендорных префиксов. используйте их.
 
-If you cannot use Autoprefixer and use neither Bourbon nor Compass, then and only then, you can have your own mixin for prefixing CSS properties. But. Please do not build a mixin per property, manually printing each vendor.
+Если вы не можете использовать Autoprefixer, Bourbon и Compass, то тогда вы должны использовать вашу собственную примесь для подстановки префиска CSS свойствам. Но, пожалуйста, не делайте на свойство по примеси, вручную выводя каждый вендор. 
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
@@ -3200,12 +3200,12 @@ Do it the clever way.
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
 {% highlight scss %}
-/// Mixin helper to output vendor prefixes
+/// Примесь, которая выводит вендорные префиксы
 /// @access public
 /// @author HugoGiraudel
-/// @param {String} $property - Unprefixed CSS property
-/// @param {*} $value - Raw CSS value
-/// @param {List} $prefixes - List of prefixes to output
+/// @param {String} $property - CSS свойство без префикса
+/// @param {*} $value - Сыррое значение CSS свойства
+/// @param {List} $prefixes - Список префиксов для вывода
 @mixin prefix($property, $value, $prefixes: ()) {
   @each $prefix in $prefixes {
     -#{$prefix}-#{$property}: $value;
@@ -3217,12 +3217,12 @@ Do it the clever way.
   </div>
   <div class="code-block__wrapper" data-syntax="sass">
 {% highlight sass %}
-/// Mixin helper to output vendor prefixes
+/// римесь, которая выводит вендорные префиксы
 /// @access public
 /// @author HugoGiraudel
-/// @param {String} $property - Unprefixed CSS property
-/// @param {*} $value - Raw CSS value
-/// @param {List} $prefixes - List of prefixes to output
+/// @param {String} $property - CSS свойство без префикса
+/// @param {*} $value - Сыррое значение CSS свойства
+/// @param {List} $prefixes - Список префиксов для вывода
 =prefix($property, $value, $prefixes: ())
   @each $prefix in $prefixes
     -#{$prefix}-#{$property}: $value
@@ -3232,7 +3232,7 @@ Do it the clever way.
   </div>
 </div>
 
-Then using this mixin should be very straightforward:
+Использование этой примеси будет очень простым:
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
@@ -3250,7 +3250,7 @@ Then using this mixin should be very straightforward:
   </div>
 </div>
 
-Please keep in mind this is a poor solution. For instance, it cannot deal with complex polyfills such as those required for Flexbox. In that sense, using Autoprefixer would be a far better option.
+Пожалуйста, помните о том, что это слабое применение. Например, это не поможет справиться со сложными полифилами, такими как те, которые нужны для Flexbox. Поэтому использование Autoprefixer будет куда лучшим вариантом.
 
 
 
@@ -3271,15 +3271,15 @@ Please keep in mind this is a poor solution. For instance, it cannot deal with c
 
 # Условные операторы
 
-You probably already know that Sass provides conditional statements via the `@if` and `@else` directives. Unless you have some medium to complex logic in your code, there is no need for conditional statements in your everyday stylesheets. Actually, they mainly exist for libraries and frameworks.
+Вы уже, наверное, знаете, что Sass предоставляет условные операторы, такие как `@if` и `@else`.  
 
-Anyway, if you ever find yourself in need of them, please respect the following guidelines:
+Тем не менее, если вам когда-нибудь понадобится использовать их, пожалуйста, следуйте следующим рекоммендациям: 
 
-* No parentheses unless they are necessary;
-* Always an empty new line before `@if`;
-* Always a line break after the opening brace (`{`);
-* `@else` statements on the same line as previous closing brace (`}`).
-* Always an empty new line after the last closing brace (`}`) unless the next line is a closing brace (`}`).
+* Никакх скобок, до тех пор пока они не нужны;
+* Всегда пуста строка перед `@if`;
+* Всегда разрыв строки после открывающей фигурной скобки (`{`);
+* `@else` на одной линии с предыдущией закрывающей скобкой (`}`).
+* Всегда новая пустая строка после последней закрывающей скобки (`}`), если следующая строка не закрывающая скобка (`}`).
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
@@ -3317,7 +3317,7 @@ Anyway, if you ever find yourself in need of them, please respect the following 
   </div>
 </div>
 
-When testing for a falsy value, always use the `not` keyword rather than testing against `false` or `null`.
+При тестировании на falsy значения, всегда используйте `not` ключевое слово, а не проверки на` false` или `null`.
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
@@ -3346,7 +3346,7 @@ When testing for a falsy value, always use the `not` keyword rather than testing
   </div>
 </div>
 
-When using conditional statements within a function to return a different result based on some condition, always make sure the function still has a `@return` statement outside of any conditional block.
+При использовании условных операторов внутри функции для того, чтобы вернуть другой результат, основанный на некоторых условиях, всегда убедитесь, что функция по-прежнему имеет `@return` в каких-либо условных блоков.
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
@@ -3401,9 +3401,9 @@ When using conditional statements within a function to return a different result
 
 # Циклы
 
-Because Sass provides complex data structures such as [lists](#lists) and [maps](#maps), it is no surprise that it also gives a way for authors to iterate over those entities.
+И-за того, что Sass предоставляет комплексные структуры данных, такие как [списки](#lists) and [карты переменных](#maps), не удивительно, что он также дает почву для перебора по в этих объектах.
 
-However, the presence of loops usually implies moderately complex logic that probably does not belong to Sass. Before using a loop, make sure it makes sense and that it actually solves an issue.
+Тем не менее, наличие циклов, как правило, подразумевает умеренно сложную логику, что, вероятно, не относится к Sass. Перед использованием цикла, убедитесь, что он имеет смысл и что он на самом деле решает проблему.
 
 
 
@@ -3412,7 +3412,7 @@ However, the presence of loops usually implies moderately complex logic that pro
 
 ## Each
 
-The `@each` loop is definitely the most-used out of the three loops provided by Sass. It provides a clean API to iterate over a list or a map.
+Цикл `@each` безусловно, наиболее часто используемый из трех циклов, предусмотренных Sass. Он предоставляет чистый API для перебора списка или карты перменных.
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
@@ -3433,7 +3433,7 @@ The `@each` loop is definitely the most-used out of the three loops provided by 
   </div>
 </div>
 
-When iterating on a map, always use `$key` and `$value` as variable names to enforce consistency.
+При итерации по карте переменных, всегда используйте `$key` и` $value` имена переменных для  соблюдения последовательности.
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
@@ -3454,10 +3454,10 @@ When iterating on a map, always use `$key` and `$value` as variable names to enf
   </div>
 </div>
 
-Also be sure to respect those guidelines to preserve readability:
+Также проверьте, чтобы соблюдались эти принципы, чтобы сохранить читаемость:
 
-* Always an empty new line before `@each`;
-* Always an empty new line after the closing brace (`}`) unless the next line is a closing brace (`}`).
+* Всегда пустая строка перед `@each`;
+* Всегда пустая строка после закрывающей скобки (`}`), до тех пор, пока новая линия не закрывающая скобка (`}`).
 
 
 
@@ -3466,7 +3466,7 @@ Also be sure to respect those guidelines to preserve readability:
 
 ## For
 
-The `@for` loop might be useful when combined with CSS' `:nth-*` pseudo-classes. Except for these scenarios, prefer an `@each` loop if you *have to* iterate over something.
+Цикл `@for` может быть полезным, когда скомибинирован с CSS псевдоклассом `:nth-*` . Исключая сценарии, когда предпочтительнее использовать `@each` цикл, если вам надо пройтись по какому-нибудь объекту.
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
@@ -3487,12 +3487,12 @@ The `@for` loop might be useful when combined with CSS' `:nth-*` pseudo-classes.
   </div>
 </div>
 
-Always use `$i` as a variable name to stick to the usual convention and unless you have a really good reason to, never use the `to` keyword: always use `through`. Many developers do not even know Sass offers this variation; using it might lead to confusion.
+Всегда используйте `$i` как переменную для соблюдения конвенции, до тех пор пока у вас нет веских причин изменить её, никогда не используйте ключевое слово `to`, используйте  `through`. Многие разработчики даже и не знают, что Sass предоставляет такие варианты; использование может привести к путанице.
 
-Also be sure to respect those guidelines to preserve readability:
+Также следуйте этим руководящим принципам, чтобы сохранить читаемость:
 
-* Always an empty new line before `@each`;
-* Always an empty new line after the closing brace (`}`) unless the next line is a closing brace (`}`).
+* Всегда пустая линия перед `@each`;
+* Всегда пустая линия после закрывающей скобки (`}`), до тех пор пока следующая линия не закрывающая скобка (`}`).
 
 
 
@@ -3501,7 +3501,7 @@ Also be sure to respect those guidelines to preserve readability:
 
 ## While
 
-The `@while` loop has absolutely no use case in a real Sass project, especially since there is no way to break a loop from the inside. **Do not use it**.
+Цикл `@while` не имеет абсолютно никакого применения в реальном Sass проекте, особенно с тех пор, как нет способа остановить цикл изнутри. **Не используйте его**.
 
 
 
@@ -3515,15 +3515,15 @@ The `@while` loop has absolutely no use case in a real Sass project, especially 
 
 # Ошибки и предупреждения
 
-If there is a feature that is often overlooked by Sass developers, it is the ability to dynamically output warnings and errors. Indeed, Sass comes with three custom directives to print content in the standard output system (CLI, compiling app...):
+Если и есть функционал, который часто упускается из виду разработчиками Sass, то это возмодность динамически выводить предупреждения и ошибки. Действильно, Sass идет с тремя директивами для вывода контента в стандартной системе вывода (CLI, compiling app...):
 
 * `@debug`;
 * `@warn`;
 * `@error`.
 
-Let's put `@debug` aside since it is clearly intended to debug SassScript, which is not our point here. We are then left with `@warn` and `@error` which are noticeably identical except that one stops the compiler while the other does not. I'll let you guess which does what.
+Отложим `@debug` в сторону, так как очевидно, что он нацелен на отладку SassScript, которая не является нашкй целью здесь. Нам остаются `@warn` и `@error`, которые с виду одинковые, за исключение того, что один останавливает компилятор, а другой нет. Позволю вам самим додумать какой из них, что делает. 
 
-Now, there is a lot of room in a Sass project for warnings and errors. Basically any mixin or function expecting a specific type or argument could throw an error if something went wrong, or display a warning when doing an assumption.
+Теперь есть много пространства в ваше Sass проекте для предупреждений и ошибок. Обычно  любая примесь или функция, за исключением специальных типов или аргументов, может выкинуть ошибку, если что-то пойдет не так или вывести предупреждение, когда делает предположение.
 
 
 
@@ -3540,7 +3540,7 @@ Now, there is a lot of room in a Sass project for warnings and errors. Basically
 
 ## Предупреждения
 
-Take this function from [Sass-MQ](https://github.com/sass-mq/sass-mq) attempting to convert a `px` value to `em`, for instance:
+Возьмём функцию из [Sass-MQ](https://github.com/sass-mq/sass-mq) предполагающую конвертирование из `px` в `em`, например:
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
@@ -3571,7 +3571,7 @@ Take this function from [Sass-MQ](https://github.com/sass-mq/sass-mq) attempting
   </div>
 </div>
 
-If the value happens to be unitless, the function assumes the value is meant to be expressed in pixels. At this point, an assumption may be risky so the user should be warned that the software did something that could be considered unexpected.
+Если значение отсутствет, то функция предполагает, то значение подразумевает собой измерение в пикселях. С этой точки зрения, предположение может быть рискованным для пользователя и поэтому он должен быть предупрежден, что программа сделает что-то, что может быть неожиданным поведением.
 
 
 
@@ -3580,18 +3580,18 @@ If the value happens to be unitless, the function assumes the value is meant to 
 
 ## Ошибки
 
-Errors, unlike warnings, prevent the compiler from going any further. Basically, they stop the compilation and display a message in the output stream as well as the stack trace, which is handy for debugging. Because of this, errors should be thrown when there is no way for the program to keep running. When possible, try to work around the issue and display a warning instead.
+Ошибки, в отличие от предупреждений, предотвращают компилятор от дальнейшей работы. Обычно они останавливают компиляцю и выводят сообщение в выходной поток, также как и в трассировке стэка, что весьма удобно для отладки. Из-за этого, ошибки должны быть выкинуты, только тогда, когда уже нет пути для выполнения программы. Когда есть возможность, попробуйте обойти эту проблему и вывести предупреждение вместо этого.   
 
-As an example, let's say you build a getter function to access values from a specific map. You could throw an error if the requested key does not exist in the map.
+Как пример, давайте скажет, что вы хотите сделать геттер фкункцию для доступа к значениям определенной карте переменных. Вы можете выкинуть ошибку, если нужный ключ не существует в карте переменных.
 
 <div class="code-block">
   <div class="code-block__wrapper" data-syntax="scss">
 {% highlight scss %}
-/// Z-indexes map, gathering all Z layers of the application
+/// Z-indexes карта переменных, собирает все Z слои приложения
 /// @access private
 /// @type Map
-/// @prop {String} key - Layer's name
-/// @prop {Number} value - Z value mapped to the key
+/// @prop {String} key - Имя слоя
+/// @prop {Number} value - Z значение, отображаемое по ключу
 $z-indexes: (
   'modal': 5000,
   'dropdown': 4000,
@@ -3599,9 +3599,9 @@ $z-indexes: (
   'below': -1,
 );
 
-/// Get a z-index value from a layer name
+/// Получение z-index значение из имени слоя
 /// @access public
-/// @param {String} $layer - Layer's name
+/// @param {String} $layer - Имя слоя
 /// @return {Number}
 /// @require $z-indexes
 @function z($layer) {
@@ -3616,16 +3616,16 @@ $z-indexes: (
   </div>
   <div class="code-block__wrapper" data-syntax="sass">
 {% highlight sass %}
-/// Z-indexes map, gathering all Z layers of the application
+/// Z-indexes карта переменных, собирает все Z слои приложения
 /// @access private
 /// @type Map
-/// @prop {String} key - Layer's name
-/// @prop {Number} value - Z value mapped to the key
+/// @prop {String} key - Имя слоя
+/// @prop {Number} value - Z значение, отображаемое по ключу
 $z-indexes: ('modal': 5000, 'dropdown': 4000, 'default': 1, 'below': -1,)
 
-/// Get a z-index value from a layer name
+/// Получение z-index значение из имени слоя
 /// @access public
-/// @param {String} $layer - Layer's name
+/// @param {String} $layer - Имя слоя
 /// @return {Number}
 /// @require $z-indexes
 @function z($layer)
@@ -3650,9 +3650,9 @@ $z-indexes: ('modal': 5000, 'dropdown': 4000, 'default': 1, 'below': -1,)
 
 # Инструменты
 
-What's nice about a CSS preprocessor as popular as Sass is that it comes with a whole ecosystem of frameworks, plugins, libraries and tools. After 8 years of existence, we are getting closer and closer to the point where [everything that can be written in Sass has been written in Sass](http://hugogiraudel.com/2014/10/27/rethinking-atwoods-law/).
+Что приятно, так это что CSS препроцессоры так популярные, как Sass, поставляются с экосистемой фреймворков, плагинов, библиотек и инструментов. После 8 лет существования мы приближаемс к точке, где [все что может быть написано на Sass будет написано yf Sass](http://hugogiraudel.com/2014/10/27/rethinking-atwoods-law/).
 
-However my advice would to be to lower the number of dependencies to the strict minimum. Managing dependencies is some sort of hell you don't want to be part of. Plus, there is little to no need for external dependencies when it comes to Sass.
+Тем не менее мой совет будет снизить количество зависимостей к минимальному. Управляя зависимостями чем-то похоже на ад, в котором вы не хотели бы оказаться. Кроме того, нет особой необходимости использовать внешние зависимости, когда работаете с Sass. 
 
 
 
@@ -3661,18 +3661,18 @@ However my advice would to be to lower the number of dependencies to the strict 
 
 ## Compass
 
-[Compass](http://compass-style.org/) is the main Sass framework out there. Developed by [Chris Eppstein](https://twitter.com/chriseppstein), one of the two core designers of Sass, I don't see it dramatically losing in popularity for a while, if you want my opinion.
+[Compass](http://compass-style.org/) главный Sass фреймворк. Разработанный [Chris Eppstein](https://twitter.com/chriseppstein), одним из ключевых разработчиков Sass, и я не вижу снижения его популярности со временем, если вы хотите моё мнение.
 
-Still, I do not use Compass anymore, the main reason is that it slows Sass down a lot. Ruby Sass is quite slow in itself, so adding more Ruby and more Sass on top of it doesn't really help.
+Тем не менее, я больше не использую Compass, главная причина в том, что он сильно замедляет Sass. Ruby Sass сам по себе весьма медленный и поэтому добавляя больше Ruby и больше Sass не особо помагает первому. 
 
-The thing is, we use very little from the whole framework. Compass is huge. Cross-browser compatibility mixins is just the tip of the iceberg. Math functions, image helpers, spriting... There is so much that can be done with this great piece of software.
+Дело в том, что мы используем очень мало из всего фреймворка. Compass огромен. Примеми кроссбраузерной совместимости лишь вершина айсберга. математические функции, помощники изображений, спрайтирование... Есть еще много того, что може быть сделанно с этим фреймворком.
 
-Unfortunately, this is all sugar and there is no killer feature in there. An exception could be made of the sprite builder which is *really great*, but [Grunticon](https://github.com/filamentgroup/grunticon) and [Grumpicon](http://grumpicon.com/) do the job as well, and have the benefit of being pluggable in the build process.
+К сожалению, это все сахар и супер функционала в нем нет. Исключение может быть сделанно только для механизма построения спрайтов, который *по-настоящему ххорош*, но [Grunticon](https://github.com/filamentgroup/grunticon) и [Grumpicon](http://grumpicon.com/) тоже отлично справляются и имеют выгоду  в том, что могут быть подключенны в процессе сюорки.
 
-Anyway, I do not forbid the use of Compass although I would not recommend it either, especially since it is not LibSass-compatible (even if efforts have been made in that direction). If you feel better using it, fair enough, but I don't think you'll get much from it at the end of the day.
+Во всяком случае, я не запрещаю использовать Compass, хотя я бы не рекомендовал его, тем более, что он не LibSass-совместимый (даже если были предприняты усилия в этом направлении). Если вы чувствуете, что вам стоит использовать его, то это достаточно справедливо для ег оиспользования, но я не думаю, что вы получитмного от него в конце дня.
 
 <div class="note">
-  <p>Ruby Sass is currently going under some outstanding optimizations that are specifically targeted at logic-heavy styles with many functions and mixins. They should dramatically improve performance to the point where Compass and other frameworks might not be slowing Sass anymore.</p>
+  <p>Ruby Sass в настоящее время подвергается некоторым выдающимся оптимизациям, которые специально предназначены для тяжелых стилей с множеством функций и примесей. Они должны резко повысить производительность до точки, когда Compass и другие фреймворки не будут больше замедлять Sass..</p>
 </div>
 
 
@@ -3690,15 +3690,15 @@ Anyway, I do not forbid the use of Compass although I would not recommend it eit
 
 ## Сетки
 
-Not using a grid system is not an option now that Responsive Web Design is all over the place. To make designs look consistent and solid across all sizes, we use some sort of grid to lay out the elements. To avoid having to code this grid work over and over again, some brilliant minds made theirs reusable.
+Отказ от использования системы сеток не является вариантом сейчас, когда адаптивный веб-дизайн повсюду. Для того, чтобы дизайн выглядел хорошо на всех размерах мы используем сетку для расположения элементов. Чтобы избежать необходимости писать код этой сетки снова и снова, некоторые блестящие умы сделал сетки многоразового использования.
 
-Let me put this straight: I am not a big fan of grid systems. Of course I do see the potential, but I think most of them are completely overkill and are mostly used to draw red columns on a white background in nerdy designers' speaker decks. When is the last time you thought *thank-God-I-have-this-tool-to-build-this-2-5-3.1-π-grid*? That's right, never. Because in most cases, you just want the usual regular 12-columns grid, nothing fancy.
+Позвольте мне сказать это прямо: я не большой поклонник сеток. Конечно, я вижу их потенциал, но я думаю, что большинство из них полностью излишне и в основном используется для рисования красных столбцов на белом фоне для презинтаций дизайнеров. Когда в последний раз вы думали, что *спасибо Богу, что Я использовал этот инструмент, чтобы построить эту 2-5-3.1-π-секту*? Всё верно, никогда. Потому что в большинстве случаев, вы просто хотите обычную 12-колоночную сетку и ничего сложного.
 
-If you are using a CSS framework for your project like [Bootstrap](http://getbootstrap.com/) or [Foundation](http://foundation.zurb.com/), chances are high it includes a grid system already in which case I would recommend to use it to avoid having to deal with yet another dependency.
+Если вы используете CSS фреймворк для вашего проекта, такой как [Bootstrap](http://getbootstrap.com/) или [Foundation](http://foundation.zurb.com/), велика вероятность того, он включает в себя систему сеток и уже в этом случае я бы рекомендовал использовать его, чтобы избежать необходимости иметь дело с еще одной зависимостью.
 
-If you are not tied to a specific grid system, you will be pleased to know there are two top-notch Sass powered grid engines out there: [Susy](http://susy.oddbird.net/) and [Singularity](http://singularity.gs/). Both do much more than you will ever need so you can pick the one you prefer between these two and be sure all your edge cases&mdash;even the most nifty ones&mdash;will be covered. If you ask me, Susy has a slightly better community, but that's my opinion.
+Если вы не привязаны к спецефичной сетке, то вам будет приятно знать, что есть два первоклассных Sass движка для сетки: [Susy](http://susy.oddbird.net/) и [Singularity](http://singularity.gs/). Обе делают гораздо больше, чем вам когда-нибудь понадобится, так что вы можете выбрать тот, который вы предпочитаете между этими двумя и убедитесь, что все ваши крайние случаи &mdash;даже самые изящные из них&mdash; будут покрыты.Если вы спросите меня, то Susy имеет немного лучшее сообщество, но это мое мнение.
 
-Or you can head over to something a bit more casual, like [csswizardry-grids](https://github.com/csswizardry/csswizardry-grids). All in all, the choice will not have much of an impact on your coding style, so this is pretty much up to you at this point.
+Или вы можете использовать что-то немного более непренужденное, как [csswizardry-grids](https://github.com/csswizardry/csswizardry-grids). В общем, выбор не будет иметь большого влияния на ваш стиль написания кода, так что это в значительной степени зависит от вас.
 
 
 
@@ -3722,11 +3722,11 @@ Or you can head over to something a bit more casual, like [csswizardry-grids](ht
 
 ## SCSS-lint
 
-Linting code is very important. Usually, following guidelines from a styleguide helps reducing the amount of code quality mistakes but nobody's perfect and there are always things to improve. So you could say that linting code is as important as commenting it.
+Проверка когда на качество всегда очень важна. Как правило, следующие рекомендации из руководста помогает уменьшить количество ошибок качества кода , но никто не совершенен и всегда есть вещи, чтобы улучшить. Таким образом, можно сказать, что проверка кода также важна, как и комментирование его.
 
-[SCSS-lint](https://github.com/causes/scss-lint) is a tool to help you keep your SCSS files clean and readable. It is fully customisable and easy to integrate with your own tools.
+[SCSS-lint](https://github.com/causes/scss-lint) является инструментом, чтобы помочь вам сохранить ваши файлы CSS чистым и читаемыми. Это инструмент полностью настраиваемый и легко интегрируемый с вашими собственными инструментами.
 
-Fortunately, SCSS-lint recommendations are very similar to those described in this document. In order to configure SCSS-lint according to Sass Guidelines, may I recommend the following setup:
+К счастью, рекомендации SCSS-lint очень похожи на те, что описаны в данном документе. Для того, чтобы настроить SCSS-lint в соответствии с Sass руководством, я рекомендую следующие настройки:
 
 {% highlight yaml %}
 # For SCSS-Lint v0.32.0
@@ -3900,8 +3900,8 @@ linters:
 {% endhighlight %}
 
 <div class="note">
-  <p>If you want to plug SCSS lint into your Grunt build process, you will be pleased to know there is a Grunt plugin for that called <a href="https://github.com/ahmednuaman/grunt-scss-lint">grunt-scss-lint</a>.</p>
-  <p>Also, if you are on the hunt for a neat application that works with SCSS-lint and the like, the guys at <a href="http://thoughtbot.com/">Thoughtbot</a> (Bourbon, Neat...) are working on <a href="https://houndci.com/">Hound</a>.</p>
+  <p>Если вы хотите подключить SCSS-lint в процессе сборки Grunt, вам будет приятно знать, что есть Grunt плагин для этого и называется<a href="https://github.com/ahmednuaman/grunt-scss-lint">grunt-scss-lint</a>.</p>
+  <p>Кроме того, если вы в погоне за приложением, которое работает с SCSS-lint и т.п., ребята из <a href="http://thoughtbot.com/">Thoughtbot</a> (Bourbon, Neat...) работают над <a href="https://houndci.com/">Hound</a>.</p>
 </div>
 
 
@@ -3924,28 +3924,28 @@ linters:
 
 # Слишком длинно; Не читал
 
-To sum up, we want:
+Подводя итог, мы хотим:
 
-* Two (2) spaces indents, no tabs;
-* 80-characters wide lines;
-* Properly written multi-line CSS;
-* Meaningful use of whitespaces;
-* Quoted strings (single quotes) & URLs;
-* No trailing 0, mandatory leading 0;
-* Calculations wrapped in parentheses;
-* No magic numbers;
-* Colors expressed in keywords > HSL > RGB > hexadecimal;
-* Lists separated with commas;
-* No trailing comma in lists (since they are inlined);
-* Trailing comma in maps;
-* No selector nesting except for pseudo-classes and pseudo-elements;
-* Hyphen-delimited naming;
-* Extensive comments;
-* SassDoc-powered API comments;
-* Limited usage of `@extend`;
-* Simple mixins;
-* As few loops as possible, no `@while`;
-* Reduced number of dependencies;
-* Meaningful use of warnings and errors.
+* Отступ двумя (2) пробелами, никаких табов;
+* Линии шириной в 80 символов;
+* Правильно написанный многострочный CSS;
+* Ослысленное использование пробелов;
+* Строки в ковычках (одиночные ковычк) & URLs;
+* Не использовать значение с точкой;
+* Вычисления, завернутые в скобки;
+* Никаких магических чисел;
+* Цвета, выраженные в ключевых словах  > HSL > RGB > шестнадцатеричные;
+* Списки, разделенный запятыми;
+* Без запятых в списках (since they are inlined);
+* Запятая в картах переменных;
+* Не использовать вложенность селекторв, только для псевдоклассов и псевдоэдементов;
+* именование через дефис;
+* Подробные комментарии;
+* SassDoc API комментариев;
+* Ограниченное использование `@extend`;
+* Простые примеси;
+* Намного меньше циклов, на сколько возможно, без`@while`;
+* Уменьшите количество зависимостей;
+* Осмысленное использование ошибок и предупреждений.
 
 {% include donate.html %}
